@@ -313,11 +313,7 @@ class LineGenerator(Visitor[Line]):
                 docstring = docstring.strip()
 
             if docstring:
-                # Add some padding if the docstring starts / ends with a quote mark.
-                if docstring[0] == quote_char:
-                    docstring = " " + docstring
-                if docstring[-1] == quote_char:
-                    docstring += " "
+                # Removed the padding added to a docstring with a quotation mark added to beginning or end
                 if docstring[-1] == "\\":
                     backslash_count = len(docstring) - len(docstring.rstrip("\\"))
                     if backslash_count % 2:
